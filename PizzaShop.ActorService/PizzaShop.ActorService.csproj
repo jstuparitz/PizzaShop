@@ -67,7 +67,7 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerActorService.cs" />
+    <Compile Include="OrderActorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PizzaShopActorService.cs" />
     <Compile Include="PizzaShopActorServiceState.cs" />

@@ -11,7 +11,7 @@ using Product = PizzaShop.DomainModel.Product;
 namespace PizzaShop.ActorService
 {
     [ActorService(Name = "PizzaShop.CustomerService")]
-    public class CustomerActorService : Actor<CustomerActorServiceState>, ICustomerActorService
+    public class OrderActorService : Actor<CustomerActorServiceState>, ICustomerActorService
     {
         public Task<Guid> CreateOrder(CreateOrderCommand command)
         {
@@ -28,7 +28,8 @@ namespace PizzaShop.ActorService
 
         public Task CancelOrder(CancelOrderCommand command)
         {
-            throw new NotImplementedException();
+           // State.CancelOrder(command.OrderId);
+            return Task.FromResult(true);
         }
 
         public Task<string> CheckOrderStatus(CheckOrderStatusCommand command)
