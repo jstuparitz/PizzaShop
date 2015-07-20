@@ -9,6 +9,7 @@ using Microsoft.ServiceFabric.Actors;
 
 namespace PizzaShop.ActorService
 {
+    [ActorService(Name = "PizzaShop.ActorService")]
     public class PizzaShopActorService : Actor<PizzaShopActorServiceState>, IPizzaShopActorService
     {
         public override Task OnActivateAsync()

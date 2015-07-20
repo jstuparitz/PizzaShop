@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <Section Name="PizzaShopActorServiceActorServiceReplicatorConfig">
-      <Parameter Name="ReplicatorEndpoint" Value="PizzaShopActorServiceActorServiceReplicatorEndpoint" />
+   <Section Name="CustomerActorServiceActorServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="CustomerActorServiceActorServiceReplicatorEndpoint" />
    </Section>
-   <Section Name="PizzaShopActorServiceActorServiceReplicatorSecurityConfig">
+   <Section Name="CustomerActorServiceActorServiceReplicatorSecurityConfig">
       <Parameter Name="CredentialType" Value="None" />
    </Section>
-   <Section Name="PizzaShopActorServiceActorServiceLocalStoreConfig">
+   <Section Name="CustomerActorServiceActorServiceLocalStoreConfig">
+      <Parameter Name="MaxAsyncCommitDelayInMilliseconds" Value="100" />
+      <Parameter Name="MaxVerPages" Value="32768" />
+   </Section>
+   <Section Name="PizzaShop.ActorServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="PizzaShop.ActorServiceReplicatorEndpoint" />
+   </Section>
+   <Section Name="PizzaShop.ActorServiceReplicatorSecurityConfig">
+      <Parameter Name="CredentialType" Value="None" />
+   </Section>
+   <Section Name="PizzaShop.ActorServiceLocalStoreConfig">
       <Parameter Name="MaxAsyncCommitDelayInMilliseconds" Value="100" />
       <Parameter Name="MaxVerPages" Value="32768" />
    </Section>

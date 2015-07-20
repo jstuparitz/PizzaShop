@@ -1,16 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="PizzaShop.ActorServicePkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
-      <StatefulServiceType ServiceTypeName="PizzaShopActorServiceActorServiceType" HasPersistedState="true">
+      <StatefulServiceType ServiceTypeName="CustomerActorServiceActorServiceType" HasPersistedState="true">
          <Extensions>
             <Extension Name="__GeneratedServiceType__">
                <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
-                  <DefaultService Name="PizzaShopActorServiceActorService" />
-                  <ServiceEndpoint Name="PizzaShopActorServiceActorServiceEndpoint" />
-                  <ReplicatorEndpoint Name="PizzaShopActorServiceActorServiceReplicatorEndpoint" />
-                  <ReplicatorConfigSection Name="PizzaShopActorServiceActorServiceReplicatorConfig" />
-                  <ReplicatorSecurityConfigSection Name="PizzaShopActorServiceActorServiceReplicatorSecurityConfig" />
-                  <StoreConfigSection Name="PizzaShopActorServiceActorServiceLocalStoreConfig" />
+                  <DefaultService Name="CustomerActorServiceActorService" />
+                  <ServiceEndpoint Name="CustomerActorServiceActorServiceEndpoint" />
+                  <ReplicatorEndpoint Name="CustomerActorServiceActorServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="CustomerActorServiceActorServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="CustomerActorServiceActorServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="CustomerActorServiceActorServiceLocalStoreConfig" />
+               </GeneratedNames>
+            </Extension>
+         </Extensions>
+      </StatefulServiceType>
+      <StatefulServiceType ServiceTypeName="PizzaShop.ActorServiceType" HasPersistedState="true">
+         <Extensions>
+            <Extension Name="__GeneratedServiceType__">
+               <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+                  <DefaultService Name="PizzaShop.ActorService" />
+                  <ServiceEndpoint Name="PizzaShop.ActorServiceEndpoint" />
+                  <ReplicatorEndpoint Name="PizzaShop.ActorServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="PizzaShop.ActorServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="PizzaShop.ActorServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="PizzaShop.ActorServiceLocalStoreConfig" />
                </GeneratedNames>
             </Extension>
          </Extensions>
@@ -26,8 +40,10 @@
    <ConfigPackage Name="Config" Version="1.0.0.0" />
    <Resources>
       <Endpoints>
-         <Endpoint Name="PizzaShopActorServiceActorServiceEndpoint" />
-         <Endpoint Name="PizzaShopActorServiceActorServiceReplicatorEndpoint" />
+         <Endpoint Name="CustomerActorServiceActorServiceEndpoint" />
+         <Endpoint Name="CustomerActorServiceActorServiceReplicatorEndpoint" />
+         <Endpoint Name="PizzaShop.ActorServiceEndpoint" />
+         <Endpoint Name="PizzaShop.ActorServiceReplicatorEndpoint" />
       </Endpoints>
    </Resources>
 </ServiceManifest>

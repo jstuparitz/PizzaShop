@@ -74,6 +74,10 @@
       <Project>{B10941FF-C10D-4485-881F-1DE4233C4621}</Project>
       <Name>PizzaShop.ActorService.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PizzaShop.Commands\PizzaShop.Commands.csproj">
+      <Project>{91cda844-05c4-49d4-a69f-020c04df51e3}</Project>
+      <Name>PizzaShop.Commands</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.ServiceFabric.Actors.1.0.314-preview1\build\Microsoft.ServiceFabric.Actors.targets" Condition="Exists('..\packages\Microsoft.ServiceFabric.Actors.1.0.314-preview1\build\Microsoft.ServiceFabric.Actors.targets')" />
