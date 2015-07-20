@@ -5,24 +5,24 @@ using Microsoft.ServiceFabric.Actors;
 using PizzaShop.ActorService.Interfaces;
 using PizzaShop.Commands.Order;
 using PizzaShop.DomainModel;
-using OrderDetail = PizzaShop.DomainModel.OrderDetail;
-using Product = PizzaShop.DomainModel.Product;
+//using OrderDetail = PizzaShop.DomainModel.OrderDetail;
+//using Product = PizzaShop.DomainModel.Product;
 
 namespace PizzaShop.ActorService
 {
     [ActorService(Name = "PizzaShop.OrderService")]
-    public class OrderActorService : Actor<CustomerActorServiceState>, ICustomerActorService
+    public class OrderActorService : Actor<Order>, ICustomerActorService
     {
         public Task<Guid> CreateOrder(CreateOrderCommand command)
         {
-            var orderDetails = new List<OrderDetail>();
-            foreach (var orderItem in command.OrderDetails)
-            {
-                orderDetails.Add(new OrderDetail(new Product(orderItem.Product.Id,
-                    orderItem.Product.Name, orderItem.Product.Price), orderItem.Quantity));
-            }
-            //State = new Order(command.OrderId, orderDetails);
-            SaveStateAsync();
+            //var orderDetails = new List<OrderDetail>();
+            //foreach (var orderItem in command.OrderDetails)
+            //{
+            //    orderDetails.Add(new OrderDetail(new Product(orderItem.Product.Id,
+            //        orderItem.Product.Name, orderItem.Product.Price), orderItem.Quantity));
+            //}
+            ////State = new Order(command.OrderId, orderDetails);
+            //SaveStateAsync();
             return Task.FromResult(command.OrderId);
         }
 

@@ -1,20 +1,12 @@
-﻿using PizzaShop.DomainModel.Shared;
+﻿using System.Runtime.Serialization;
 
 namespace PizzaShop.DomainModel
 {
-    public class OrderStatus : Enumeration, IValueObject<OrderStatus>
+    [DataContract]
+    public class OrderStatusType
     {
-        public static readonly OrderStatus InProgress = new OrderStatus("InProgress", "InProgress");
-        public static readonly OrderStatus Canceled = new OrderStatus("Canceled", "Canceled");
-        public static readonly OrderStatus Completed = new OrderStatus("Completed", "Completed");
-
-        private OrderStatus(string value, string displayName) : base(value, displayName)
-        {
-        }
-
-        public bool SameValueAs(OrderStatus other)
-        {
-            return other != null && Equals(other);
-        }
+        public const string InProgress = "InProgress";
+        public const string Canceled = "Canceled";
+        public const string Completed = "Completed";
     }
 }
