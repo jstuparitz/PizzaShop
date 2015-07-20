@@ -30,7 +30,7 @@ namespace PizzaShop.ActorService.Client
 
             //gives you the ability to connect to the actor
             var orderId = Guid.NewGuid();
-            var proxyOrder = ActorProxy.Create<IOrderActor>(new ActorId(orderId), ApplicationName);
+            var proxyOrder = ActorProxy.Create<IOrderActorService>(new ActorId(orderId), ApplicationName);
 
             proxyOrder.CreateOrder(CreateOrderCommand(orderId));
         }

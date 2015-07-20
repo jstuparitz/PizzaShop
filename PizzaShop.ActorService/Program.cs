@@ -16,7 +16,7 @@ namespace PizzaShop.ActorService
                 {
                     fabricRuntime.RegisterActor(typeof(PizzaShopActorService));
                     fabricRuntime.RegisterActor(typeof(CustomerActorService));
-                    //fabricRuntime.RegisterActor(typeof(OrderActor));
+                    //fabricRuntime.RegisterActor(typeof(OrderActorService));
                     Thread.Sleep(Timeout.Infinite);
                 }
             }

@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="PizzaShop.ActorServicePkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
-      <StatefulServiceType ServiceTypeName="CustomerActorServiceActorServiceType" HasPersistedState="true">
+      <StatefulServiceType ServiceTypeName="PizzaShop.CustomerServiceType" HasPersistedState="true">
          <Extensions>
             <Extension Name="__GeneratedServiceType__">
                <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
-                  <DefaultService Name="CustomerActorServiceActorService" />
-                  <ServiceEndpoint Name="CustomerActorServiceActorServiceEndpoint" />
-                  <ReplicatorEndpoint Name="CustomerActorServiceActorServiceReplicatorEndpoint" />
-                  <ReplicatorConfigSection Name="CustomerActorServiceActorServiceReplicatorConfig" />
-                  <ReplicatorSecurityConfigSection Name="CustomerActorServiceActorServiceReplicatorSecurityConfig" />
-                  <StoreConfigSection Name="CustomerActorServiceActorServiceLocalStoreConfig" />
+                  <DefaultService Name="PizzaShop.CustomerService" />
+                  <ServiceEndpoint Name="PizzaShop.CustomerServiceEndpoint" />
+                  <ReplicatorEndpoint Name="PizzaShop.CustomerServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="PizzaShop.CustomerServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="PizzaShop.CustomerServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="PizzaShop.CustomerServiceLocalStoreConfig" />
                </GeneratedNames>
             </Extension>
          </Extensions>
@@ -40,8 +40,8 @@
    <ConfigPackage Name="Config" Version="1.0.0.0" />
    <Resources>
       <Endpoints>
-         <Endpoint Name="CustomerActorServiceActorServiceEndpoint" />
-         <Endpoint Name="CustomerActorServiceActorServiceReplicatorEndpoint" />
+         <Endpoint Name="PizzaShop.CustomerServiceEndpoint" />
+         <Endpoint Name="PizzaShop.CustomerServiceReplicatorEndpoint" />
          <Endpoint Name="PizzaShop.ActorServiceEndpoint" />
          <Endpoint Name="PizzaShop.ActorServiceReplicatorEndpoint" />
       </Endpoints>

@@ -10,7 +10,7 @@ namespace PizzaShop.ActorService.Interfaces
     ///     a request-response pattern. These interactions are defined in an interface as asynchronous methods.
     ///     Arguments and the result type of the Task it returns must be serializable.
     /// </summary>
-    public interface IOrderActor : IActor
+    public interface IOrderActorService : IActor
     {
         Task<Guid> CreateOrder(CreateOrderCommand command);
         Task CancelOrder(CancelOrderCommand command);

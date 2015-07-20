@@ -4,8 +4,8 @@
     <ServiceManifestRef ServiceManifestName="PizzaShop.ActorServicePkg" ServiceManifestVersion="1.0.0.0" />
   </ServiceManifestImport>
   <DefaultServices>
-    <Service Name="CustomerActorServiceActorService">
-      <StatefulService ServiceTypeName="CustomerActorServiceActorServiceType" TargetReplicaSetSize="3" MinReplicaSetSize="2">
+    <Service Name="PizzaShop.CustomerService">
+      <StatefulService ServiceTypeName="PizzaShop.CustomerServiceType" TargetReplicaSetSize="3" MinReplicaSetSize="2">
         <UniformInt64Partition PartitionCount="9" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
