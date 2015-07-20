@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <Section Name="PizzaShop.CustomerServiceReplicatorConfig">
-      <Parameter Name="ReplicatorEndpoint" Value="PizzaShop.CustomerServiceReplicatorEndpoint" />
+   <Section Name="PizzaShop.OrderServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="PizzaShop.OrderServiceReplicatorEndpoint" />
    </Section>
-   <Section Name="PizzaShop.CustomerServiceReplicatorSecurityConfig">
+   <Section Name="PizzaShop.OrderServiceReplicatorSecurityConfig">
       <Parameter Name="CredentialType" Value="None" />
    </Section>
-   <Section Name="PizzaShop.CustomerServiceLocalStoreConfig">
+   <Section Name="PizzaShop.OrderServiceLocalStoreConfig">
       <Parameter Name="MaxAsyncCommitDelayInMilliseconds" Value="100" />
       <Parameter Name="MaxVerPages" Value="32768" />
    </Section>

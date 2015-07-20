@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="PizzaShop.ActorServicePkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
-      <StatefulServiceType ServiceTypeName="PizzaShop.CustomerServiceType" HasPersistedState="true">
+      <StatefulServiceType ServiceTypeName="PizzaShop.OrderServiceType" HasPersistedState="true">
          <Extensions>
             <Extension Name="__GeneratedServiceType__">
                <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
-                  <DefaultService Name="PizzaShop.CustomerService" />
-                  <ServiceEndpoint Name="PizzaShop.CustomerServiceEndpoint" />
-                  <ReplicatorEndpoint Name="PizzaShop.CustomerServiceReplicatorEndpoint" />
-                  <ReplicatorConfigSection Name="PizzaShop.CustomerServiceReplicatorConfig" />
-                  <ReplicatorSecurityConfigSection Name="PizzaShop.CustomerServiceReplicatorSecurityConfig" />
-                  <StoreConfigSection Name="PizzaShop.CustomerServiceLocalStoreConfig" />
+                  <DefaultService Name="PizzaShop.OrderService" />
+                  <ServiceEndpoint Name="PizzaShop.OrderServiceEndpoint" />
+                  <ReplicatorEndpoint Name="PizzaShop.OrderServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="PizzaShop.OrderServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="PizzaShop.OrderServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="PizzaShop.OrderServiceLocalStoreConfig" />
                </GeneratedNames>
             </Extension>
          </Extensions>
@@ -40,8 +40,8 @@
    <ConfigPackage Name="Config" Version="1.0.0.0" />
    <Resources>
       <Endpoints>
-         <Endpoint Name="PizzaShop.CustomerServiceEndpoint" />
-         <Endpoint Name="PizzaShop.CustomerServiceReplicatorEndpoint" />
+         <Endpoint Name="PizzaShop.OrderServiceEndpoint" />
+         <Endpoint Name="PizzaShop.OrderServiceReplicatorEndpoint" />
          <Endpoint Name="PizzaShop.ActorServiceEndpoint" />
          <Endpoint Name="PizzaShop.ActorServiceReplicatorEndpoint" />
       </Endpoints>

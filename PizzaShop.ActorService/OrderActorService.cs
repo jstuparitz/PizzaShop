@@ -10,7 +10,7 @@ using Product = PizzaShop.DomainModel.Product;
 
 namespace PizzaShop.ActorService
 {
-    [ActorService(Name = "PizzaShop.CustomerService")]
+    [ActorService(Name = "PizzaShop.OrderService")]
     public class OrderActorService : Actor<CustomerActorServiceState>, ICustomerActorService
     {
         public Task<Guid> CreateOrder(CreateOrderCommand command)
