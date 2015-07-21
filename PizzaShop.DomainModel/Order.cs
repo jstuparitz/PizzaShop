@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using PizzaShop.DomainModel.Shared;
+using IAggregate = PizzaShop.DomainModel.Shared.IAggregate;
 
 namespace PizzaShop.DomainModel
 {
     [DataContract]
-    public class Order
+    public class Order : IAggregate
     {
         public Order()
         {
         }
 
-        public Order(Guid id, List<OrderDetail> orderDetails)
+        public Order(Guid orderId, List<OrderDetail> orderDetails)
         {
-            Id = id;
+            Id = orderId;
             OrderDate = DateTime.UtcNow;
             OrderStatus = OrderStatusType.InProgress;
             SetOrderDetails(orderDetails);

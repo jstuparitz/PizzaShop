@@ -16,23 +16,26 @@ namespace PizzaShop.ActorService.Client
 
         public static void Main(string[] args)
         {
-            Thread.Sleep(20000);
 
-            var proxy = ActorProxy.Create<IPizzaShopActorService>(ActorId.NewId(), ApplicationName);
+            //var proxy = ActorProxy.Create<IPizzaShopActorService>(ActorId.NewId(), ApplicationName);
 
-            int count = 10;
-            Console.WriteLine("Setting Count to in Actor {0}: {1}", proxy.GetActorId(), count);
-            proxy.SetCountAsync(count).Wait();
+            //int count = 10;
+            //Console.WriteLine("Setting Count to in Actor {0}: {1}", proxy.GetActorId(), count);
+            //proxy.SetCountAsync(count).Wait();
 
-            Console.WriteLine("Count from Actor {1}: {0}", proxy.GetActorId(), proxy.GetCountAsync().Result);
-
-
+            //Console.WriteLine("Count from Actor {1}: {0}", proxy.GetActorId(), proxy.GetCountAsync().Result);
 
             //gives you the ability to connect to the actor
             var orderId = Guid.NewGuid();
-            var proxyOrder = ActorProxy.Create<IOrderActorService>(new ActorId(orderId), ApplicationName);
+            var proxyOrder = ActorProxy.Create<IOrderActorService>(new ActorId(orderId), ApplicationName, "PizzaShop.OrderService");
 
             proxyOrder.CreateOrder(CreateOrderCommand(orderId));
+
+            Thread.Sleep(1000);
+
+            var checkOrderStatusCommand = new CheckOrderStatusCommand();
+            checkOrderStatusCommand.OrderId = orderId;
+            var status = proxyOrder.CheckOrderStatus(checkOrderStatusCommand).Result;
         }
 
         private static CreateOrderCommand CreateOrderCommand(Guid orderId)

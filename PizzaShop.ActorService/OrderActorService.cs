@@ -5,8 +5,10 @@ using Microsoft.ServiceFabric.Actors;
 using PizzaShop.ActorService.Interfaces;
 using PizzaShop.Commands.Order;
 using PizzaShop.DomainModel;
+using PizzaShop.DomainModel.Shared;
 using OrderDetail = PizzaShop.DomainModel.OrderDetail;
 using Product = PizzaShop.DomainModel.Product;
+
 
 namespace PizzaShop.ActorService
 {
@@ -23,6 +25,10 @@ namespace PizzaShop.ActorService
             }
             State = new Order(command.OrderId, orderDetails);
             SaveStateAsync();
+
+           // IRepository<Order> repository = new DocumentDBRepository<Order>();
+           // repository.Insert(State);
+
             return Task.FromResult(command.OrderId);
         }
 
