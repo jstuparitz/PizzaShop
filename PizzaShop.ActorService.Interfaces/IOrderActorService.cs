@@ -16,5 +16,6 @@ namespace PizzaShop.ActorService.Interfaces
         Task CancelOrder(CancelOrderCommand command);
         Task<string> CheckOrderStatus(CheckOrderStatusCommand command);
         Task CompleteOrder(CompleteOrderCommand command);
+        Task<string> SayHello();
     }
 }

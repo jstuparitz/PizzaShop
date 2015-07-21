@@ -14,7 +14,7 @@ using Product = PizzaShop.DomainModel.Product;
 namespace PizzaShop.ActorService
 {
     [ActorService(Name = "PizzaShop.OrderService")]
-    public class OrderActorService : Actor<Order>, ICustomerActorService
+    public class OrderActorService : Actor<Order>, IOrderActorService
     {
         public Task<Guid> CreateOrder(CreateOrderCommand command)
         {
@@ -27,8 +27,12 @@ namespace PizzaShop.ActorService
             State = new Order(command.OrderId, orderDetails);
             SaveStateAsync();
 
+            ActorEventSource.Current.ActorMessage(this, "Order has been created.");
+
             IRepository<Order> repository = new DocumentDbRepository<Order>();
             repository.Insert(State);
+
+            ActorEventSource.Current.ActorMessage(this, "Order has been saved to DocumentDB.");
 
             return Task.FromResult(command.OrderId);
         }
@@ -48,6 +52,13 @@ namespace PizzaShop.ActorService
         {
             State.CompleteOrder(command.OrderId);
             return Task.FromResult(true);
+        }
+
+        public Task<string> SayHello()
+        {
+            var message = "Hello: " + DateTime.Now.ToLongDateString();
+            ActorEventSource.Current.ActorMessage(this, message);
+            return Task.FromResult(message);
         }
     }
 }

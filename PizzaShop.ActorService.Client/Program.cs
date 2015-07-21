@@ -12,7 +12,7 @@ namespace PizzaShop.ActorService.Client
 {
     public class Program
     {
-        private const string ApplicationName = "fabric:/PizzaShop.ActorServiceApplication";
+        private const string ApplicationName = "fabric:/PizzaShop";
 
         public static void Main(string[] args)
         {
@@ -29,6 +29,7 @@ namespace PizzaShop.ActorService.Client
             var orderId = Guid.NewGuid();
             var proxyOrder = ActorProxy.Create<IOrderActorService>(new ActorId(orderId), ApplicationName, "PizzaShop.OrderService");
 
+            proxyOrder.SayHello();
             proxyOrder.CreateOrder(CreateOrderCommand(orderId));
 
             Thread.Sleep(1000);
