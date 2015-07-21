@@ -9,7 +9,8 @@ namespace PizzaShop.DomainModel
     public class Order
     {
         public Order()
-        { }
+        {
+        }
 
         public Order(Guid id, List<OrderDetail> orderDetails)
         {
