@@ -93,6 +93,10 @@
       <Project>{91cda844-05c4-49d4-a69f-020c04df51e3}</Project>
       <Name>PizzaShop.Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PizzaShop.DocumentDBRepository\PizzaShop.DocumentDBRepository.csproj">
+      <Project>{605129ab-52d1-477f-8fea-d8a2681b86c8}</Project>
+      <Name>PizzaShop.DocumentDBRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PizzaShop.DomainModel\PizzaShop.DomainModel.csproj">
       <Project>{19d97298-e285-443a-90cd-673c59ec8740}</Project>
       <Name>PizzaShop.DomainModel</Name>

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 using PizzaShop.ActorService.Interfaces;
 using PizzaShop.Commands.Order;
+using PizzaShop.DocumentDBRepository;
 using PizzaShop.DomainModel;
 using PizzaShop.DomainModel.Shared;
 using OrderDetail = PizzaShop.DomainModel.OrderDetail;
@@ -26,8 +27,8 @@ namespace PizzaShop.ActorService
             State = new Order(command.OrderId, orderDetails);
             SaveStateAsync();
 
-           // IRepository<Order> repository = new DocumentDBRepository<Order>();
-           // repository.Insert(State);
+            IRepository<Order> repository = new DocumentDbRepository<Order>();
+            repository.Insert(State);
 
             return Task.FromResult(command.OrderId);
         }
