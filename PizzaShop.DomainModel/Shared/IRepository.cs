@@ -20,5 +20,7 @@ namespace PizzaShop.DomainModel.Shared
         Task<IList<TAggregate>> GetAll();
 
         Task<TAggregate> GetById(Guid id);
+
+        string CollectionId { get; set; }
     }
 }

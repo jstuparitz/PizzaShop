@@ -14,20 +14,20 @@ namespace PizzaShop.DocumentDBRepository
 {
     public class DocumentDbRepository<TAggregate> : IRepository<TAggregate> where TAggregate : IAggregate
     {
-        private static DocumentClient client;
-        private static readonly string databaseId = ConfigurationManager.AppSettings["DatabaseId"];
-        private static readonly string uri = ConfigurationManager.AppSettings["DocumentDBUri"];
-        private static readonly string key = ConfigurationManager.AppSettings["DocumentDBKey"];
+        private DocumentClient _client;
+        private readonly string databaseId = ConfigurationManager.AppSettings["DatabaseId"];
+        private readonly string uri = ConfigurationManager.AppSettings["DocumentDBUri"];
+        private readonly string key = ConfigurationManager.AppSettings["DocumentDBKey"];
 
         public string CollectionId { get; set; }
 
         public async Task<bool> Insert(TAggregate entity)
         {
-            using (client = new DocumentClient(new Uri(uri), key))
+            using (_client = new DocumentClient(new Uri(uri), key))
             {
                 var link = await GetCollection();
-                var document = await client.CreateDocumentAsync(link.SelfLink, entity);
-                if (document.StatusCode == HttpStatusCode.OK)
+                var document = await _client.CreateDocumentAsync(link.SelfLink, entity);
+                if (document.StatusCode == HttpStatusCode.Created)
                     return true;
                 return false;
             }
@@ -78,12 +78,12 @@ namespace PizzaShop.DocumentDBRepository
         /// <param name="dbLink">The Database SelfLink property where this DocumentCollection exists / will be created</param>
         /// <param name="id">The id of the DocumentCollection to search for, or create.</param>
         /// <returns>The matched, or created, DocumentCollection object</returns>
-        private static async Task<DocumentCollection> GetOrCreateCollectionAsync(string dbLink, string id)
+        private async Task<DocumentCollection> GetOrCreateCollectionAsync(string dbLink, string id)
         {
-            DocumentCollection collection = client.CreateDocumentCollectionQuery(dbLink).Where(c => c.Id == id).ToArray().FirstOrDefault();
+            DocumentCollection collection = _client.CreateDocumentCollectionQuery(dbLink).Where(c => c.Id == id).ToArray().FirstOrDefault();
             if (collection == null)
             {
-                collection = await client.CreateDocumentCollectionAsync(dbLink, new DocumentCollection { Id = id });
+                collection = await _client.CreateDocumentCollectionAsync(dbLink, new DocumentCollection { Id = id });
             }
 
             return collection;
@@ -94,12 +94,12 @@ namespace PizzaShop.DocumentDBRepository
         /// </summary>
         /// <param name="id">The id of the Database to search for, or create.</param>
         /// <returns>The matched, or created, Database object</returns>
-        private static async Task<Database> GetOrCreateDatabaseAsync(string id)
+        private async Task<Database> GetOrCreateDatabaseAsync(string id)
         {
-            Database database = client.CreateDatabaseQuery().Where(db => db.Id == id).ToArray().FirstOrDefault();
+            Database database = _client.CreateDatabaseQuery().Where(db => db.Id == id).ToArray().FirstOrDefault();
             if (database == null)
             {
-                database = await client.CreateDatabaseAsync(new Database { Id = id });
+                database = await _client.CreateDatabaseAsync(new Database { Id = id });
             }
 
             return database;

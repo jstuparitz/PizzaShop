@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaShop.DomainModel", "Pi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaShop.DocumentDBRepository", "PizzaShop.DocumentDBRepository\PizzaShop.DocumentDBRepository.csproj", "{605129AB-52D1-477F-8FEA-D8A2681B86C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaShop.DocumentDBRepository.IntegrationTests", "PizzaShop.DocumentDBRepository.IntegrationTests\PizzaShop.DocumentDBRepository.IntegrationTests.csproj", "{B82AB85B-E1C6-479A-94C4-5D79FEA12421}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,14 @@ Global
 		{605129AB-52D1-477F-8FEA-D8A2681B86C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{605129AB-52D1-477F-8FEA-D8A2681B86C8}.Release|x64.ActiveCfg = Release|Any CPU
 		{605129AB-52D1-477F-8FEA-D8A2681B86C8}.Release|x64.Build.0 = Release|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Debug|x64.Build.0 = Debug|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Release|x64.ActiveCfg = Release|Any CPU
+		{B82AB85B-E1C6-479A-94C4-5D79FEA12421}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
