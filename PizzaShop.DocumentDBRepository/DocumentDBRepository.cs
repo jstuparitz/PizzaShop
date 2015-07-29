@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using Microsoft.Practices.TransientFaultHandling;
+using Microsoft.Azure.Documents.Client.TransientFaultHandling;
 using PizzaShop.DomainModel.Shared;
 
 namespace PizzaShop.DocumentDBRepository
@@ -23,12 +25,13 @@ namespace PizzaShop.DocumentDBRepository
 
         public async Task<bool> Insert(TAggregate entity)
         {
-            using (_client = new DocumentClient(new Uri(uri), key))
+            using (_client = new DocumentClient(new Uri(uri), key).AsReliable(new FixedInterval(10, TimeSpan.FromSeconds(1))))
             {
                 var link = await GetCollection();
                 var document = await _client.CreateDocumentAsync(link.SelfLink, entity);
                 if (document.StatusCode == HttpStatusCode.Created)
                     return true;
+                if (document.StatusCode == (HttpStatusCode) 429) //Too Many Requests
                 return false;
             }
         }

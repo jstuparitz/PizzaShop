@@ -27,18 +27,18 @@ namespace PizzaShop.ActorService.Client
 
             //gives you the ability to connect to the actor
 
-            var orderId = new Guid("1539afc1-ef4f-4980-92f7-564950d693df");
-            var proxyOrder = ActorProxy.Create<IOrderActorService>(new ActorId(orderId), ApplicationName, "PizzaShop.OrderService");
-            var checkOrderStatusCommand = new CheckOrderStatusCommand();
-            checkOrderStatusCommand.OrderId = orderId;
-            var status = proxyOrder.CheckOrderStatus(checkOrderStatusCommand).Result;
+            //var orderId = new Guid("e7dda76d-ee1d-4aae-afcd-c0d5b70c04d4");
+            //var proxyOrder = ActorProxy.Create<IOrderActorService>(new ActorId(orderId), ApplicationName, "PizzaShop.OrderService");
+            //var checkOrderStatusCommand = new CheckOrderStatusCommand();
+            //checkOrderStatusCommand.OrderId = orderId;
+            //var status = proxyOrder.CheckOrderStatus(checkOrderStatusCommand).Result;
 
-            
 
-            //for (int i = 0; i < 10000; i++)
-            //{
-            //    Console.WriteLine(CreateOrder().ToString());
-            //}
+
+            for (int i = 0; i < 2500; i++)
+            {
+                Console.WriteLine(CreateOrder().ToString());
+            }
 
         }
 
