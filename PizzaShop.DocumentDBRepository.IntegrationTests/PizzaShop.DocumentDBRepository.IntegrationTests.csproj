@@ -51,7 +51,6 @@
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PizzaShop.DocumentDBRepository\PizzaShop.DocumentDBRepository.csproj">

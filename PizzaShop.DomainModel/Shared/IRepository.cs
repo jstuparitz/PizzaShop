@@ -7,7 +7,7 @@ namespace PizzaShop.DomainModel.Shared
 {
     public interface IRepository<TAggregate>
     {
-        Task<bool> Insert(TAggregate entity);
+        Task Insert(TAggregate entity);
 
         Task<bool> Insert(IEnumerable<TAggregate> entities);
 

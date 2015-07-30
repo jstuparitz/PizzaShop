@@ -29,17 +29,17 @@ namespace PizzaShop.ActorService
 
             ActorEventSource.Current.ActorMessage(this, "Order has been created.");
 
-            try
-            {
-                IRepository<Order> repository = new DocumentDbRepository<Order>();
-                repository.CollectionId = "Orders";
-                repository.Insert(State);
-                ActorEventSource.Current.ActorMessage(this, "Order has been saved to DocumentDB.");
-            }
-            catch (Exception ex)
-            {
-                ActorEventSource.Current.ActorMessage(this, ex.ToString());
-            }
+            //try
+            //{
+            //    IRepository<Order> repository = new DocumentDbRepository<Order>();
+            //    repository.CollectionId = "Orders";
+            //    repository.Insert(State);
+            //    ActorEventSource.Current.ActorMessage(this, "Order has been saved to DocumentDB.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    ActorEventSource.Current.ActorMessage(this, ex.ToString());
+            //}
 
             return Task.FromResult(command.OrderId);
         }

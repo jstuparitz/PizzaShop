@@ -35,9 +35,14 @@ namespace PizzaShop.ActorService.Client
 
 
 
-            for (int i = 0; i < 2500; i++)
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(CreateOrder().ToString());
+                for (int x = 0; x < 10000; x++)
+                {
+                    CreateOrder();
+                }
+                Console.WriteLine((i*10000).ToString() + " orders have been processed.");
+                Thread.Sleep(3000);
             }
 
         }
