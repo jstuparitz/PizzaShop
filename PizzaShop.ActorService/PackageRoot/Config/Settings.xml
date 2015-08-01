@@ -7,7 +7,7 @@
       <Parameter Name="CredentialType" Value="None" />
    </Section>
    <Section Name="PizzaShop.OrderServiceLocalStoreConfig">
-      <Parameter Name="MaxAsyncCommitDelayInMilliseconds" Value="100" />
+      <Parameter Name="MaxAsyncCommitDelayInMilliseconds" Value="50" />
       <Parameter Name="MaxVerPages" Value="32768" />
    </Section>
    <Section Name="PizzaShop.ActorServiceReplicatorConfig">

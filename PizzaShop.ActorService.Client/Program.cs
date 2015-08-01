@@ -35,14 +35,15 @@ namespace PizzaShop.ActorService.Client
 
 
 
-            for (int i = 1; i <= 10000; i++)
+            for (int i = 1; i <= 100000; i++)
             {
-                int maxInterval = 10000;
+                int maxInterval = 100;
                 for (int x = 0; x < maxInterval; x++)
                 {
-                    CreateOrder();
+                    Console.WriteLine(CreateOrder() + DateTime.Now.ToLongTimeString());
                 }
-                Console.WriteLine((i* maxInterval).ToString() + " orders have been processed at " + DateTime.Now.ToLongTimeString());
+                Thread.Sleep(20);
+                //Console.WriteLine((i* maxInterval).ToString() + " orders have been processed at " + DateTime.Now.ToLongTimeString());
             }
 
         }

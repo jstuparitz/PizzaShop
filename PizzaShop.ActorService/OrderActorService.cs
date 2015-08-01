@@ -28,6 +28,7 @@ namespace PizzaShop.ActorService
             SaveStateAsync();
 
             ActorEventSource.Current.ActorMessage(this, "Order has been created.");
+            ActorEventSource.Current.ActorMessage(this, "SERVICE FABRIC HAS BEEN UPGRADED");
 
             //try
             //{
