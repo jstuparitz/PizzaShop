@@ -16,7 +16,7 @@ namespace PizzaShop.ActorService
     [ActorService(Name = "PizzaShop.OrderService")]
     public class OrderActorService : Actor<Order>, IOrderActorService
     {
-        public Task<Guid> CreateOrder(CreateOrderCommand command)
+        public async Task<Guid> CreateOrder(CreateOrderCommand command)
         {
             var orderDetails = new List<OrderDetail>();
             foreach (var orderItem in command.OrderDetails)
@@ -25,10 +25,9 @@ namespace PizzaShop.ActorService
                     orderItem.Product.Name, orderItem.Product.Price), orderItem.Quantity));
             }
             State = new Order(command.OrderId, orderDetails);
-            SaveStateAsync();
+            await SaveStateAsync();
 
             ActorEventSource.Current.ActorMessage(this, "Order has been created.");
-            ActorEventSource.Current.ActorMessage(this, "SERVICE FABRIC HAS BEEN UPGRADED");
 
             //try
             //{
@@ -42,7 +41,7 @@ namespace PizzaShop.ActorService
             //    ActorEventSource.Current.ActorMessage(this, ex.ToString());
             //}
 
-            return Task.FromResult(command.OrderId);
+            return command.OrderId;
         }
 
         public Task CancelOrder(CancelOrderCommand command)
